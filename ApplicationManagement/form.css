@@ -52,3 +52,10 @@
 .btn:hover {
     box-shadow: 0px 2px 8px 2px #858686;
 }
+.warn {
+    background-color: #fab6b8;
+    color: red;
+    padding-block: 0.5rem;
+    padding-inline: 1rem;
+    text-align: center;
+}

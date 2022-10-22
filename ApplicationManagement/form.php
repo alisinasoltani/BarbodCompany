@@ -1,3 +1,17 @@
+<?php
+    include __DIR__.'/DB.php';
+    include __DIR__.'/Auth.php';
+    $flag = 0;
+    if (isset($_POST['username']) && isset($_POST['password'])){
+        $db = new DB();
+        $auth = new Auth($db);
+        if ($auth->checkUsername($_POST['username']) && $auth->checkPassword($_POST['username'], $_POST['password'])) {
+            header('Location: '. 'index.php');
+        } else {
+            $flag = 1;
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -13,6 +27,9 @@
         <div class="row form-row">
             <div class="col-3 form-body">
                 <div class="form-img"><img src="colleagues-working-together-project_74855-6308.webp" alt="" /></div>
+                <?php if ($flag): ?>
+                    <div class="warn">Wrong Username or Password</div>
+                <?php endif; ?>
                 <form class="form" method="POST" action="">
                     <div class="form-input-group">
                         <label class="form-label" for="username">Userneme:</label><br />
