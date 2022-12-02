@@ -1,5 +1,5 @@
 CREATE TABLE transactions (
-    id INT(1) AUTO_INCREMENT PRIMARY KEY,
+    id INT(64) AUTO_INCREMENT PRIMARY KEY,
     market VARCHAR(12) NOT NULL,
     type VARCHAR(4) NOT NULL,
     amount INT(64) NOT NULL,
